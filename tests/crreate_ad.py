@@ -61,11 +61,5 @@ class TestCreateAd:
         #Нажать кнопку "Опубликовать"
         driver.find_element(*CreateAdLocators.publish_button).click()
 
-        #Скролл вверх 
-        driver.execute_script("window.scrollTo(0, 0);")
-        
-        #Переход на страницу с моими объявлениями 
-        WebDriverWait(driver, 10).until(ec.element_to_be_clickable(CreateAdLocators.user_photo)).click()
-
         #в блоке «Мои объявления» отображается созданное объявление
         assert WebDriverWait(driver, 3).until(ec.visibility_of_element_located(CreateAdLocators.item_name_card)).is_displayed()

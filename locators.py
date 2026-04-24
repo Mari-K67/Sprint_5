@@ -1,27 +1,24 @@
 from selenium.webdriver.common.by import By
 
 class RegistrationLocators:
-    # URL главной страницы
-    url_main_page = 'https://qa-desk.stand.praktikum-services.ru/'
-
     #кнопка "Вход и регистрация"
-    login_and_registration_button = By.XPATH, '//*[@id="root"]/div/div[1]/div/button'
-    
+    login_and_registration_button = By.XPATH, "//button[contains(text(), 'Вход и регистрация')]"
+
     #кнопка "Нет аккаунта"
-    no_account_button = By.XPATH, '//*[@id="root"]/div/div[2]/div/form/div[3]/button[2]'
+    no_account_button = By.XPATH, "//button[contains(text(), 'Нет аккаунта')]"
 
     #поле "Email"
     email_field = By.NAME, "email"
-    
+
     #поле "Пароль"
     password_field = By.NAME, "password"
-    
+
     #поле "Повторите пароль"
     password_confirmation_field = By.NAME, "submitPassword"
-    
-    #кнопка "Создать аккаунт"
-    create_account_button = By.XPATH, '//*[@id="root"]/div/div[2]/div/form/div[3]/button[1]'
 
+    #кнопка "Создать аккаунт"
+    create_account_button = By.XPATH, "//button[contains(text(), 'Создать аккаунт')]"
+    
     #Фотка в профиле
     user_photo = By.XPATH, '//button[@class="circleSmall"]'
 
@@ -30,10 +27,10 @@ class RegistrationLocators:
 
     #поле "Email" с ошибкой красное
     email_error_field = By.XPATH, "//input[@name='email']//ancestor::div[contains(@class, 'input_inputError')]"
-    
+
     #поле "Пароль" с ошибкой красное
     password_error_field = By.XPATH, "//input[@name='password']//ancestor::div[contains(@class, 'input_inputError')]"
-    
+
     #поле "Повторите пароль" с ошибкой красное 
     password_confirmation_error_field = By.XPATH, "//input[@name='submitPassword']//ancestor::div[contains(@class, 'input_inputError')]"
 
@@ -41,26 +38,17 @@ class RegistrationLocators:
     email_error_word = By.CSS_SELECTOR, ".input_span__yWPqB"
 
 class LogInOutLocators:
-    # URL главной страницы
-    url_main_page = 'https://qa-desk.stand.praktikum-services.ru/'
-
     #кнопка "Вход и регистрация"
-    login_and_registration_button = By.XPATH, '//*[@id="root"]/div/div[1]/div/button'
+    login_and_registration_button = By.XPATH, "//button[contains(text(), 'Вход и регистрация')]"
 
     #поле "Email"
     email_field = By.NAME, "email"
-     
-    #Email уже существующего пользователя
-    email_exist_user = 'komarova_32@gmail.com'
-    
+
     #поле "Пароль"
     password_field = By.NAME, "password"
-    
-    #Пароль уже существующего пользователя
-    password_exist_user = '1234567'
 
     #кнопка "Войти"
-    login_button = By.XPATH, '//*[@id="root"]/div/div[2]/div[5]/form/div[3]/button[1]'
+    login_button = By.XPATH, "//button[@type='submit' and contains(text(), 'Войти')]"
 
     #Фотка в профиле
     user_photo = By.XPATH, '//button[@class="circleSmall"]'
@@ -72,27 +60,18 @@ class LogInOutLocators:
     logout_button = By.XPATH, "//button[text()='Выйти']"
 
 class CreateAdLocators:
-    # URL главной страницы
-    url_main_page = 'https://qa-desk.stand.praktikum-services.ru/'
-
     #кнопка "Вход и регистрация"
-    login_and_registration_button = By.XPATH, '//*[@id="root"]/div/div[1]/div/button'
+    login_and_registration_button = By.XPATH, "//button[contains(text(), 'Вход и регистрация')]"
 
     #поле "Email"
     email_field = By.NAME, "email"
-     
-    #Email уже существующего пользователя
-    email_exist_user = 'komarova_32@gmail.com'
-    
+
     #поле "Пароль"
     password_field = By.NAME, "password"
-    
-    #Пароль уже существующего пользователя
-    password_exist_user = '1234567'
 
     #кнопка "Войти"
-    login_button = By.XPATH, '//*[@id="root"]/div/div[2]/div[5]/form/div[3]/button[1]'
-    
+    login_button = By.XPATH, "//button[@type='submit' and contains(text(), 'Войти')]"
+
     #для прогрузки страницы
     user_photo = By.XPATH, '//button[@class="circleSmall"]'
 
@@ -100,16 +79,14 @@ class CreateAdLocators:
     add_ad_button = By.XPATH, "//button[text()='Разместить объявление']"
 
     #Страница авторизации с заголовком 'Чтобы разместить объявление, авторизуйтесь'
-    avtorization_request_text = By.XPATH, '//*[@id="root"]/div/div[2]/div[5]/form/div[1]/h1'
+    avtorization_request_text = By.CSS_SELECTOR, "h1.h1"
 
     #поле "Название"
     name_field = By.XPATH, "//input[@name='name']"
 
-    #пример товара
-    item_name = 'Бездна Челенджера'
-
     #Drpodown "Категория"
     drpodown_category = By.XPATH, "(//button[contains(@class, 'dropDownMenu_arrowDown')])[1]"
+    
     #выбрать категорию
     selected_category = By.XPATH, "//span[text()='Книги']"
 
@@ -120,7 +97,7 @@ class CreateAdLocators:
     drpodown_city = By.XPATH, "(//button[contains(@class, 'dropDownMenu_arrowDown')])[2]"
 
     #выбрать город 
-    selected_city = By.XPATH, "//span[text()='Нижний Новгорд']"
+    selected_city = By.XPATH, "//span[text()='Нижний Новгород']/ancestor::button"
 
     #поле "Описание товара"
     item_description_button = By.XPATH, "//textarea[@name='description']"
@@ -129,7 +106,7 @@ class CreateAdLocators:
     cost_field = By.XPATH, "//input[@name='price']"
 
     #кнопка "Опубликовать"
-    publish_button = "//button[text()='Опубликовать']"
-
+    publish_button = By.XPATH, "//button[text()='Опубликовать']"
+    
     #поиск карточки по названию 
     item_name_card = By.XPATH, "//h2[text()='Бездна Челенджера']"
